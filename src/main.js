@@ -1,5 +1,5 @@
-import '../style.css';
-import Chart from 'chart.js/auto';
+// CSS is loaded via link tag in index.html
+// Chart.js is loaded via CDN in index.html
 import { INITIAL_STATE, FACTIONS, WIN_CONDITIONS, LOSE_CONDITIONS } from './data/initialState.js';
 import { POLICIES } from './data/policies.js';
 import { calculateNextTurn } from './logic/simulation.js';
@@ -311,7 +311,7 @@ function setupEventListeners() {
 // --- Service Worker Registration ---
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('./sw.js')
             .then(registration => {
                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
             })
