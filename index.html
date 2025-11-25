@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puerto Rico Governor Sim</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0070f3">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <header class="top-bar">
+      <div class="stat-group">
+        <span class="label">Year</span>
+        <span class="value" id="year-display">2025</span>
+      </div>
+      <div class="stat-group">
+        <span class="label">Approval</span>
+        <span class="value" id="approval-display">50%</span>
+      </div>
+      <div class="stat-group">
+        <span class="label">Debt/GDP</span>
+        <span class="value" id="debt-ratio-display">70%</span>
+      </div>
+      <button id="next-turn-btn" class="primary-btn">End Year</button>
+    </header>
+
+    <main class="dashboard-grid">
+      <!-- Left Col: Stats & Charts -->
+      <section class="panel stats-panel">
+        <h2>Economic Indicators</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <h3>Debt</h3>
+            <p id="debt-display">$70B</p>
+          </div>
+          <div class="metric-card">
+            <h3>GDP</h3>
+            <p id="gdp-display">$100B</p>
+          </div>
+          <div class="metric-card">
+            <h3>Unemployment</h3>
+            <p id="unemployment-display">10%</p>
+          </div>
+          <div class="metric-card">
+            <h3>Budget</h3>
+            <p id="budget-display">$0B</p>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="mainChart"></canvas>
+        </div>
+        <div id="map-container" class="map-container">
+          <!-- Map injected here -->
+        </div>
+      </section>
+
+      <!-- Middle Col: Policies -->
+      <section class="panel policy-panel">
+        <h2>Policies</h2>
+        <div class="tabs">
+          <button class="tab-btn active" data-category="Revenue">Revenue</button>
+          <button class="tab-btn" data-category="Spending">Spending</button>
+          <button class="tab-btn" data-category="Policies">Policies</button>
+        </div>
+        <div id="policy-list" class="policy-list">
+          <!-- Policies injected here -->
+        </div>
+      </section>
+
+      <!-- Right Col: Factions -->
+      <section class="panel faction-panel">
+        <h2>Factions</h2>
+        <div id="faction-list" class="faction-list">
+          <!-- Factions injected here -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal for Events/Game Over -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div class="modal">
+        <h2 id="modal-title">Title</h2>
+        <p id="modal-body">Content</p>
+        <button id="modal-close" class="primary-btn">Continue</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
